@@ -194,7 +194,7 @@ public void doctorFrame(ArrayList<Doctor> doctorList, ArrayList<Patient> patient
 
 ## Challenges
 * My UML Diagrams had some errors, could have been better defined and a little bit better organised.
-* I had some challenges related to the implementation of the GUI, I feel that I could definitely have implemented it more efficiently.
+* I had some challenges related to the implementation of the GUI, I feel that I could definitely have handled it more efficiently.
 
 ## Conclusions
 This project taught me to utilise several critically important aspects of software development; such as OOP principles, basic project planning and testing, graphical user interfaces and saving to and loading from text files.
