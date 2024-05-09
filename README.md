@@ -6,15 +6,15 @@ By [Sam Clark](https://github.com/SamC95)
 This project was coursework for my second year module: Object Oriented Programming -- at the University of Westminster.
 
 ## Contents
-* [Project Brief]()
-* [Approach]()
-* [Technologies]()
-* [Project Diagrams]()
-* [Implementation]()
-* [Key Learnings]()
-* [Achievements]()
-* [Challenges]()
-* [Conclusions]()
+* [Project Brief](https://github.com/SamC95/Java_OOP_SkinConsultation/tree/master#project-brief)
+* [Approach](https://github.com/SamC95/Java_OOP_SkinConsultation/tree/master#approach)
+* [Technologies](https://github.com/SamC95/Java_OOP_SkinConsultation/tree/master#technologies)
+* [Project Diagrams](https://github.com/SamC95/Java_OOP_SkinConsultation/tree/master#project-diagrams)
+* [Implementation](https://github.com/SamC95/Java_OOP_SkinConsultation/tree/master#implementation)
+* [Key Learnings](https://github.com/SamC95/Java_OOP_SkinConsultation/tree/master#key-learnings)
+* [Achievements](https://github.com/SamC95/Java_OOP_SkinConsultation/tree/master#achievements)
+* [Challenges](https://github.com/SamC95/Java_OOP_SkinConsultation/tree/master#challenges)
+* [Conclusions](https://github.com/SamC95/Java_OOP_SkinConsultation/tree/master#conclusions)
 
 ## Project Brief
 
