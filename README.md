@@ -112,3 +112,91 @@ The project included the creation of UML diagrams to define the expected use cas
 
 ## Implementation
 
+This project taught me several new concepts that I had not had experience with before, likely the largest of these other than general OOP principles would be that it was the first time I utilised a Graphical User Interface in a program.
+
+Below is an example of the code for showing an initial GUI frame showing a list of doctors that are stored on the system that the user can select from.
+
+```java
+public void doctorFrame(ArrayList<Doctor> doctorList, ArrayList<Patient> patientList,
+                            ArrayList<Consultation> consultList, HashSet<String> uniquePatientId, HashSet<String> uniqueBookingNum,
+                            String[] Years, String[] consultYears) {
+        doctorFrame = new JFrame();
+        doctorFrame.setTitle("Table of Doctors");
+
+        String[] namesOfColumns = {"Name", "Date of Birth", "Mobile No", "Medical No", "Specialisation"};
+        DefaultTableModel tableModel = new DefaultTableModel(namesOfColumns, 0);
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        JTable table = new JTable(tableModel) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            } 
+        };
+        
+        for (Doctor doctor : doctorList) {
+            String name = doctor.getPersonFirstName() + " " + doctor.getPersonLastName();
+            LocalDate DOB = doctor.getPersonDOB();
+            String mobileNum = doctor.getPersonMobileNo();
+            String medNum = doctor.getMedLicenseNo();
+            String role = doctor.getSpecialisation();
+
+            if (role.contains("#")) {
+                role = role.replace("#", " ");
+            }
+            Object[] tableData = {name, DOB, mobileNum, medNum, role};
+            tableModel.addRow(tableData);
+        }
+
+        JLabel label = new JLabel("Select a doctor to book a consultation.");
+        doctorFrame.add(label, BorderLayout.SOUTH);
+
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent event) {
+                if (event.getClickCount() == 2) {
+                    JTable target = (JTable) event.getSource(); // Detects where the mouseClick occurred
+                    int row = target.getSelectedRow();
+                    String doctorId = (String) target.getValueAt(row, 3); //Stores the selected doctor's medical license number for later use
+
+                    String[] options = {"New Patient", "Existing Patient", "Existing Consultation"};
+
+                    int selection = JOptionPane.showOptionDialog(patientFrame,
+                            "Book as new patient, existing patient or search for an existing consultation?", "Patient Option",
+                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+
+                    if (selection == JOptionPane.YES_OPTION) {
+                        patientFrame(doctorList, patientList, consultList, uniquePatientId, uniqueBookingNum, doctorId, Years, consultYears);
+                    }
+                    else if (selection == JOptionPane.NO_OPTION) {
+                        existingPatient(doctorList, patientList, consultList, uniquePatientId, uniqueBookingNum, doctorId, consultYears);
+                    }
+                    else if (selection == 2) {
+                        checkConsultation(uniqueBookingNum, consultList);
+                    }
+                }
+            }
+        });
+```
+
+## Key Learnings
+* Learnt to utilise Object-Oriented Programming principles using Objects, Classes and Interfaces.
+* Implemented a Graphical User Interface for the first time.
+* First experience with Java Swing.
+* Used UML Diagrams for the first time.
+* Gained more experience with writing and reading from text files.
+* This was one of the larger scale projects I had worked on at the time, as such it allowed me to improve my general knowledge of Java.
+* Gained some experience with utilising test cases.
+
+## Achievements
+* Implemented all the expected features and functionality defined in the project brief.
+* Was able to effectively implement OOP techniques, which was the core goal of the module project.
+
+## Challenges
+* My UML Diagrams had some errors, could have been better defined and a little bit better organised.
+* I had some challenges related to the implementation of the GUI, I feel that I could definitely have implemented it more efficiently.
+
+## Conclusions
+This project taught me to utilise several critically important aspects of software development; such as OOP principles, basic project planning and testing, graphical user interfaces and saving to and loading from text files.
+
+Since this was one of the larger projects I had worked on at the time, it was also one of the first that I utilised multiple separate classes and had communication/interaction between them which presented a unique challenge at the time. I feel looking back on the project now after having worked on several projects afterwards, that I definitely could refine aspects of the project to be more efficiently designed but overall the project met the defined goals as per the project brief without any significant bugs or other issues.
